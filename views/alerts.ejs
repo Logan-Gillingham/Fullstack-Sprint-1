@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+  <title>Specials</title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+  <main class="main-content">
+    <h1>Specials</h1>
+    <ul>
+    <% restaurantsWithAlerts.forEach(restaurant => { %>
+        <li>
+        <h2><%= restaurant.restaurantName %></h2>
+        <% if (restaurant.specialMenuItems.length > 0) { %>
+            <p>Special Menu Items:</p>
+            <ul>
+            <% restaurant.specialMenuItems.forEach(item => { %>
+                <li><%= item.name %></li>
+            <% }) %>
+            </ul>
+        <% } else { %>
+            <p>This restaurant currently has no special menu alerts.</p>
+        <% } %>
+        </li>
+    <% }) %>
+    </ul>
+  </main>
+</body>
+</html>
